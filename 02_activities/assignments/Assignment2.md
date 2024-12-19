@@ -54,7 +54,14 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+To retain changes I would propose a CUSTOMER_ADDRESS table with the following columns; surrogate_key, customer_id, customer_address, start_date, and end_date.
+When a customer's address is changed I would insert a new row into the table and give the new address a new surrogate_key and the correspoding start_date.
+I would update the end_date of the previous customer address accordingly.
+Retaining changes is Type 2.
+
+To overwrite changes I would propose a CUSTOMER_ADDRESS table with the following columns; customer_id, and customer_address.
+When a customer's address is changed I would overriate the customer_address at the corresponding customer_id.
+Overwriting changes is Type 1
 ```
 
 ***
